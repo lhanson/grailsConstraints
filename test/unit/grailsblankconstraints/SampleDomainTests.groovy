@@ -13,7 +13,7 @@ class SampleDomainTests {
     }
 
     void testBlankable() {
-        domain = new SampleDomain(name: ' ')
+        domain = new SampleDomain(name: '')
         assertFalse "Should inherit default non-blank constraint", domain.validate()
     }
 }

@@ -6,11 +6,9 @@ are that nullable fields are allowed, but blank fields are not.
 
 == Questions ==
 
-The unit test for SampleDomain verifies that a null field passes validation,
-but a blank field does not. I would expect the command object to behave the
-same way, since it is marked @Validateable and therefore should be referenced
-by [any validateable class](http://grails.org/doc/latest/guide/validation.html#sharingConstraints).
+The unit tests for the domain and command objects verify that a null field passes
+validation, but the `testBlankable` tests asserting that an object with a blank
+field should be invalid do not pass. It appears that setting a `blank: false`
+constraint in `grails.gorm.default.constraints` is not enforced by validation.
 
-The tests for the domain class pass. The `testNullable` test for the command
-object passes, so it is indeed referencing the `nullable: true` global constraint,
-but for some reason `testBlankable` fails for the command object. Why?
+Why not?
