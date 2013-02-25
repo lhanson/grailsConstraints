@@ -14,6 +14,9 @@ class SampleDomainTests {
 
     void testBlankable() {
         domain = new SampleDomain(name: '')
+        // Fails for some reason:
+        // assertEquals '', domain.name
+        domain.name = ''
         assertFalse "Should inherit default non-blank constraint", domain.validate()
     }
 }
